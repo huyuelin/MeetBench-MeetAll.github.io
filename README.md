@@ -46,6 +46,34 @@ All data, code, and pre-trained checkpoints will be released upon acceptance. Pl
 
 ---
 
+## Resources for Reproducibility
+
+To address questions about reproducing the benchmark, we have released the following resources:
+
+### 1. English Meeting Dataset (CHiME-6)
+The English meeting data (20 CHiME-6 meetings, ~40h, 382 queries) is available in the HuggingFace dataset:
+- **HuggingFace**: [YueLinHu/MeetAll-v2](https://huggingface.co/datasets/YueLinHu/MeetAll-v2)
+- **Filter English queries**: `ds["train"].filter(lambda x: x["language"] == "en")`
+- **Meeting IDs**: `chime6_s01` to `chime6_s20` (source_dataset: "CHiME-6")
+
+### 2. 42 Enterprise Query Patterns
+Complete documentation of the 42 query patterns identified through stakeholder interviews:
+- **File**: [`appendix/42_query_patterns.md`](appendix/42_query_patterns.md)
+- **Contents**: 4-dimensional taxonomy (CL/CD/DK/TE), 13 consolidated classes (C01-C13), example queries
+
+### 3. Prompt Templates & Reproduction Scripts
+All prompt templates for query/answer generation and MeetBench evaluation:
+- **Directory**: [`prompts/`](prompts/)
+- **Files**:
+  - `query_prompts.py` – Complete prompt templates (English + Chinese)
+  - `reproduce_query_generation.py` – Script to reproduce query generation with LLM API
+- **Quick start**:
+  ```bash
+  python prompts/reproduce_query_generation.py --class C02 --language en --num-queries 1
+  ```
+
+---
+
 ## Directory Layout
 ```
 MeetBench/
