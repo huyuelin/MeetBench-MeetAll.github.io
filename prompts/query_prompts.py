@@ -176,6 +176,60 @@ MEETBENCH_EVALUATION_PROMPT = """\
 {{'事实正确性': 8, '满足用户需求': 7, '简洁性': 9, '结构清晰性': 8, '完整性': 7, '综合得分': 8}}"""
 
 
+MEETBENCH_EVALUATION_PROMPT_EN = """\
+You are an assistant skilled at evaluating text quality.
+Please act as an impartial judge and evaluate the quality of an AI assistant's response to a user's question.
+
+Since the response type you are evaluating is a meeting understanding task, you need to evaluate the response from the following dimensions:
+
+1. **Factual Accuracy**: Whether the information provided in the response is accurate and based on credible facts and data.
+
+2. **User Need Satisfaction**: Whether the response meets the purpose and needs of the user's question, and whether it provides a comprehensive and appropriate answer to the question.
+
+3. **Conciseness**: Whether the response is concise and to-the-point, without redundant information, conveying the most effective content with the least text.
+
+4. **Structural Clarity**: Whether the response has a clear structure and logical coherence, making it easy to understand and follow.
+
+5. **Completeness**: Whether the response completely covers all aspects of the question without omitting important information.
+
+We will provide you with:
+- The user's question (Question)
+- A high-quality reference answer (Reference Answer)
+- The AI assistant's answer to be evaluated (Model Response)
+
+## Evaluation Process
+When you begin your evaluation, you must follow this process:
+1. Compare the AI assistant's answer with the reference answer, pointing out the shortcomings of the AI assistant's answer
+2. Evaluate the AI assistant's answer from different dimensions, giving each dimension a score from 1-10 after each dimension's evaluation
+3. Finally, comprehensively assess each dimension's evaluation, and give an overall score from 1-10 for the AI assistant's answer
+4. Your scoring should be as strict as possible
+
+## Scoring Rules
+- **1-2 points**: The response has essential factual errors unrelated to the question or harmful content
+- **3-4 points**: The response is basically harmless but of low quality, failing to meet user needs
+- **5-6 points**: The response basically meets requirements but performs poorly in some dimensions
+- **7-8 points**: The response quality is close to the reference answer, performing well in all dimensions
+- **9-10 points**: The response quality significantly exceeds the reference answer, fully addressing all needs
+
+## Input Data
+
+### User Question
+{question}
+
+### Reference Answer
+{reference_answer}
+
+### AI Assistant Answer
+{model_response}
+
+Please evaluate according to the above process, and return all scoring results in the following dictionary format at the end:
+
+{{'Factual Accuracy': score, 'User Need Satisfaction': score, 'Conciseness': score, 'Structural Clarity': score, 'Completeness': score, 'Overall Score': score}}
+
+Example output format:
+{{'Factual Accuracy': 8, 'User Need Satisfaction': 7, 'Conciseness': 9, 'Structural Clarity': 8, 'Completeness': 7, 'Overall Score': 8}}"""
+
+
 # ============================================================================
 # 3. COMPLEXITY CLASS DEFINITIONS (for prompt formatting)
 # ============================================================================
@@ -357,7 +411,7 @@ def format_answer_prompt(context, question, language="en"):
     )
 
 
-def format_evaluation_prompt(question, reference_answer, model_response):
+def format_evaluation_prompt(question, reference_answer, model_response, language="en"):
     """
     Format the MeetBench evaluation prompt.
     
@@ -365,11 +419,17 @@ def format_evaluation_prompt(question, reference_answer, model_response):
         question: Original user question
         reference_answer: Gold/ground truth answer
         model_response: Model's response to evaluate
+        language: "en" for English, "zh" for Chinese
         
     Returns:
         Formatted evaluation prompt string
     """
-    return MEETBENCH_EVALUATION_PROMPT.format(
+    if language == "zh":
+        prompt_template = MEETBENCH_EVALUATION_PROMPT
+    else:
+        prompt_template = MEETBENCH_EVALUATION_PROMPT_EN
+    
+    return prompt_template.format(
         question=question,
         reference_answer=reference_answer,
         model_response=model_response,
