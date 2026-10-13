@@ -1,12 +1,18 @@
-# MeetAll · MeetBench · MeetMaster
+# MeetBench-XL: Calibrated Multi-Dimensional Evaluation and Learned Dual-Policy Agents for Real-Time Meetings
 ![image](https://github.com/user-attachments/assets/ecd96592-b8b3-4705-8013-c8c687debc32)
 
 > Multimodal & Multilingual Meeting Agent Suite  
-> **ACM Multimedia 2025 – Dataset Track (under review)**
+> **AAAI 2026 workshop** (acceptance stated in the [arXiv record](https://arxiv.org/abs/2602.03285))
 
-This repository hosts the complete, open–source implementation that accompanies our paper
+This repository contains the MeetAll, MeetBench, and MeetMaster resources associated with our paper:
 
-> **"MeetBench: A Multimodal, Multilingual Meeting-Agent Dataset and Benchmark"**
+> **[MeetBench-XL: Calibrated Multi-Dimensional Evaluation and Learned Dual-Policy Agents for Real-Time Meetings](https://arxiv.org/abs/2602.03285)**
+
+Yuelin Hu, Jun Xu, Bingcong Lu, Zhengxue Cheng, Hongwei Hu, Ronghua Wu, Li Song.
+
+[Paper (arXiv)](https://arxiv.org/abs/2602.03285) · [PDF (v1)](https://arxiv.org/pdf/2602.03285v1) · [Citation](#citation)
+
+Paper metadata below refers to arXiv:2602.03285v1. Existing dataset descriptions and result tables are retained here; consult the linked paper for its version-specific experimental setup.
 ![image](https://github.com/user-attachments/assets/f9c43081-7e9d-4121-abc9-447fdf42ee8b)
 
 It contains three tightly–coupled components:
@@ -20,7 +26,7 @@ It contains three tightly–coupled components:
 ![image](https://github.com/user-attachments/assets/3984b31d-9738-40cb-8db1-5b13416665be)
 
 
-All data, code, and pre-trained checkpoints will be released upon acceptance. Please ⭐ **Star** and **Watch** this repo to get notified!
+Available resources and reproduction instructions are listed below.
 
 ---
 
@@ -94,7 +100,7 @@ MeetBench/
 ### 1. Create the environment
 ```bash
 # clone the repo
-$ git clone https://github.com/MeetBench/MeetBench.git
+$ git clone https://github.com/huyuelin/MeetBench-MeetAll.github.io.git MeetBench
 $ cd MeetBench
 
 # install dependencies
@@ -123,7 +129,7 @@ $ python MeetBench_Benchmark/compare_results_prometheus.py \
         --data_root ./MeetAll \
         --model meetmaster \
         --save_dir ./experiment_result
-
+```
 
 ### 4. Live demo of MeetMaster
 ```bash
@@ -200,14 +206,19 @@ Please read `LICENSE` and `DATA_LICENSE` before use.
 ---
 
 ## Citation
-If you find this work useful, please cite us:
+If you use this work, please cite the public arXiv version below. The author order matches the PDF. The arXiv record notes AAAI 2026 workshop acceptance; a workshop-specific proceedings citation is not provided here.
 ```bibtex
-@misc{meetall2025,
-  title        = {MeetAll & MeetBench: A Multimodal, Multilingual Meeting-Agent Dataset and Benchmark},
-  author       = {Your Name and Others},
-  year         = {2025},
-  note         = {Under review, ACM Multimedia Dataset Track},
-  url          = {https://github.com/MeetBench/MeetBench}
+@misc{meetbenchxl2026arxivv1,
+  title = {{MeetBench-XL: Calibrated Multi-Dimensional Evaluation and Learned Dual-Policy Agents for Real-Time Meetings}},
+  author = {Yuelin Hu and Jun Xu and Bingcong Lu and Zhengxue Cheng and Hongwei Hu and Ronghua Wu and Li Song},
+  year = {2026},
+  eprint = {2602.03285},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.AI},
+  version = {1},
+  note = {arXiv version 1},
+  doi = {10.48550/arXiv.2602.03285},
+  url = {https://arxiv.org/abs/2602.03285v1}
 }
 ```
 
