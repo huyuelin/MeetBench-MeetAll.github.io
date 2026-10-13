@@ -1,0 +1,6 @@
+[submodule "MeetMaster/llm/Qwen2.5-Omni"]
+	path = MeetMaster/llm/Qwen2.5-Omni
+	url = https://github.com/QwenLM/Qwen2.5-Omni.git
+[submodule "MeetMaster/whisper_streaming"]
+	path = MeetMaster/whisper_streaming
+	url = https://github.com/ufal/whisper_streaming.git
