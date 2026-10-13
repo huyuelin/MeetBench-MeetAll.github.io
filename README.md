@@ -10,6 +10,8 @@ This repository contains the MeetAll, MeetBench, and MeetMaster resources associ
 
 Yuelin Hu, Jun Xu, Bingcong Lu, Zhengxue Cheng, Hongwei Hu, Ronghua Wu, Li Song.
 
+Research profile: [Yuelin Hu (胡玥麟)](https://scholar.google.com/citations?user=Kd57ldIAAAAJ) · [GitHub](https://github.com/huyuelin).
+
 [Paper (arXiv)](https://arxiv.org/abs/2602.03285) · [PDF (v1)](https://arxiv.org/pdf/2602.03285v1) · [Citation](#citation)
 
 Paper metadata below refers to arXiv:2602.03285v1. Existing dataset descriptions and result tables are retained here; consult the linked paper for its version-specific experimental setup.
@@ -236,3 +238,4 @@ Questions? Feel free to open an issue or email us at **huyuelin@126.com**.
 
 ## Acknowledgements
 This project heavily builds upon the open-source work of [F5-TTS](https://github.com/SWivid/F5-TTS), [CompassJudger](https://github.com/open-compass/CompassJudger), [Prometheus](https://github.com/prometheus-eval/prometheus-eval)and the broader research community. We thank all contributors! 
+
